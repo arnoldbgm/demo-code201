@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./styles/dashboard.css">
-    
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="./styles/dashboard.css">
+
 </head>
+
 <body>
-    <h1>soy</h1>
-    <script src="./js/dashboard.js"></script>
+
+   <h2>Hola desde el dashboard</h2>
+
+   <script>
+
+      //Vamos a leer el localStorage , viene en formato string (json)
+      const data = localStorage.getItem("dataEmpresas")
+
+      //Convertimos el string a un objeto
+      const dataFormateada = JSON.parse(data)
+
+      // Cuantar empresas hay
+      const cantidadEmpresa = dataFormateada.length
+      console.log(`Hay ${cantidadEmpresa} empresas registradas`)
+
+      // Empresas del tipo servicios
+      const nrmoServicios = dataFormateada.filter((empresa) => empresa.tipo === "servicios" ).length
+      console.log(`Hay ${nrmoServicios} empresas del tipo servicios`)
+
+   </script>
 </body>
+
 </html>
